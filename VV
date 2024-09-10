@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Bon Voyage Card</title> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet"> 
+  <style>
+        body {
+            background-color: #f3f8fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+
+        .section {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            height: auto;
+            display: none;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .show {
+            display: block;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 18px;
+            color: #34495e;
+            line-height: 1.5;
+        }
+
+        img {
+            width: 80%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 15px;
+            transition: transform 0.5s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            padding: 12px 25px;
+            color: white;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .typing-text {
+            display: inline-block;
+            white-space: pre-wrap; /* Fixes the text wrapping */
+            overflow: hidden;
+            border-right: 3px solid;
+            animation: typing 5s steps(50, end), blink-caret 0.75s step-end infinite;
+            font-size: 18px;
+            color: #34495e;
+            margin-bottom: 20px;
+            width: 100%; /* Ensures text doesn't go off-screen */
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
+        }
+
+        .heart {
+            font-size: 28px;
+            color: red;
+        }
+
+        /* Flying animation for Bon Voyage */
+        .fly-in {
+            animation: fly-animation 2.5s ease-out;
+        }
+
+        @keyframes fly-animation {
+            0% {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive design for small screens */
+        @media (max-width: 600px) {
+            img {
+                width: 100%;
+            }
+            .section {
+                padding: 20px;
+            }
+            button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+    </style> 
+ </head> 
+ <body> <!-- Page 1 --> 
+  <div class="section show" id="page1"> 
+   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlRNhS12cSZw2Y6ouKMtLhIQZ_FWEuDLYiJa4MFdbt_nDDgGdy9ujzTfE&amp;s=10" alt="Cute Toad"> 
+   <h1>Have a toad-ally hoppy journey! <span class="heart">❤️</span></h1> <button id="toPage2">Next</button> 
+  </div> <!-- Page 2 --> 
+  <div class="section" id="page2"> 
+   <h1 class="fly-in">Bon Voyage! ✈️</h1> <button id="toPage3">Next</button> 
+  </div> <!-- Page 3 --> 
+  <div class="section" id="page3"> 
+   <p class="typing-text"> Wishing you all the happiness, success and fantastic new adventures in the UK! 🇬🇧<br><br> Love,<br>A 🐸♥️ </p> 
+  </div> 
+  <script>
+        // Page navigation
+        document.getElementById('toPage2').addEventListener('click', function() {
+            document.getElementById('page1').classList.remove('show');
+            document.getElementById('page2').classList.add('show');
+        });
+
+        document.getElementById('toPage3').addEventListener('click', function() {
+            document.getElementById('page2').classList.remove('show');
+            document.getElementById('page3').classList.add('show');
+        });
+
+        // Add flying animation to Bon Voyage text
+        setTimeout(function() {
+            document.querySelector('.fly-in').classList.add('fly-in');
+        }, 500);
+    </script> 
+ </body>
+</html>
